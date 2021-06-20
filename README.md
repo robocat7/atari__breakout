@@ -1,9 +1,9 @@
 # atari__breakout
-игра на prossesing3
-//передаём информацыю с классов в основную програму
-platform Platforma; 
-ball Ball; 
-bricks Bricks; 
+ игра на prossesing3
+ //передаём информацыю с классов в основную програму
+ platform Platforma; 
+ ball Ball; 
+ bricks Bricks; 
 
 PFont DancingScript; //шрифт для score и record
 
