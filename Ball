@@ -1,0 +1,55 @@
+class ball{ //сщздаём класс для шарика
+  boolean die = false;
+  
+float ball_x=random(10,657);
+float ball_y=random(10,657);
+float ball_move_y=2;
+float ball_move_x=3;
+
+int r = 255;
+int g = 255;
+int b = 255; //создаём переменные для цвета
+ 
+
+int balln(platform d){
+  ball_x+=ball_move_x;
+  ball_y+=ball_move_y;
+  
+  if(this.ball_x > d.platform_x && this.ball_x < d.platform_x+200 && this.ball_y+8 > d.platform_y){ //програма проверки на столкновение с платформой и смена цвета при касании с платформой
+    color ballColor = color(random(255),random(255),random(255));
+    ball_move_y=-ball_move_y;
+    fill(ballColor);
+  }
+  
+  if(ball_x>700-15)
+  {
+    ball_move_x=-ball_move_x;
+  }
+  else if(ball_x<15)
+  {
+    ball_move_x=-ball_move_x;
+  }
+  else if(ball_y>700-15){
+    
+    die = true;
+    ball_move_y=-ball_move_y;
+    return 0;
+  }
+  else if(ball_y<15)
+  {
+    ball_move_y=-ball_move_y;
+  }
+  
+  if(ball_y > Platforma.platform_y - 15 && ball_x > Platforma.platform_y && ball_x < Platforma.platform_x + 200){ 
+    ball_move_y =  -ball_move_y;
+    r = (int)random(50,255);
+    g = (int)random(50,255);
+    b = (int)random(50,255);
+  }
+  
+  fill(r,g,b);
+  
+  ellipse(ball_x,ball_y,16,16);
+  return 1;
+}
+}
