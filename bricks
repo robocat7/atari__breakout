@@ -1,0 +1,37 @@
+class bricks{ //создаём класс для кирпичей
+  int BRICKS_ACROSS = 10, BRICKS_HIGH = 4;
+  boolean bricks[][] = new boolean[BRICKS_ACROSS][BRICKS_HIGH];
+
+void displayBricks(){ //рисовка кирпичей
+  for (int i = 0; i < BRICKS_ACROSS; i++) {
+    for (int j = 0; j < BRICKS_HIGH; j++) {
+      bricks[i][j] = true;
+    }
+  }
+}
+
+void resetBall(ball balln){ //програма проверки на столкновение с кирпичями 
+  for (int i = 0; i < BRICKS_ACROSS; i++) {
+    for (int j = 0; j < BRICKS_HIGH; j++) {
+      
+      if(balln.ball_x > i*75 && balln.ball_x < i*75+75 && balln.ball_y-8 < j*25+25){
+        bricks[i][j] = false;
+      }
+      
+      if (bricks[i][j]) {
+        fill(20*(i+j) + 51, 204 - 5*(i+j), 255 - 7*(i+j));
+      }
+      else fill (0, 0, 0, 0);
+      rect(i*75, j*25, 75, 25);
+    }
+  }
+  if(balln.die){ //востановление кирпичей при падении мяча
+    for (int i = 0; i < BRICKS_ACROSS; i++) {
+      for (int j = 0; j < BRICKS_HIGH; j++) {
+        bricks[i][j] = true;
+        balln.die = false;
+      }
+    }
+  }
+}
+}  
