@@ -1,0 +1,20 @@
+class platform { //создаём класс для платформы
+  public  float platform_x=300;
+  public  float platform_y=600;
+
+platform (float platform_x,float platform_y){
+  this.platform_x = platform_x;
+  this.platform_y = platform_y;
+}
+void display() { //програма для управления и рисовки платформы
+  fill(225, 5, 197);
+  rect(platform_x, platform_y, 200, 30, 20);
+  if (keyCode == LEFT && platform_x > 0)
+  {
+    platform_x-=3;
+  }
+  else if (keyCode == RIGHT && platform_x < width-200) {
+    platform_x+=3;
+  }
+}
+}
